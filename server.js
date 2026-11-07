@@ -4,8 +4,10 @@ const Database = require("better-sqlite3");
 const path = require("path");
 
 const app = express();
-const db = new Database("tasktrack.db");
+const dbPath = process.env.DATABASE_PATH ||
+    path.join(__dirname, "tasktrack.db");
 
+const db = new Database(dbPath);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
