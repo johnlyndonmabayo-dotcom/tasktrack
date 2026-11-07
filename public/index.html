@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTrack | Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>TaskTrack<span>.</span></h2>
+
+    <p class="menu-label">MENU</p>
+    <a href="#" class="active">▦ Dashboard</a>
+    <a href="#tasks">☷ My Tasks</a>
+
+    <div class="sidebar-bottom">
+        <p>STUDENT TASK MANAGER</p>
+        <small>Stay organized. Stay productive.</small>
+    </div>
+</div>
+
+<main class="main-content">
+
+    <header>
+        <div>
+            <h1>Dashboard</h1>
+            <p>Welcome back! Here's your productivity overview.</p>
+        </div>
+        <div class="date" id="today"></div>
+    </header>
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <p>Total Tasks</p>
+            <h2 id="totalTasks">0</h2>
+            <span>All your tasks</span>
+        </div>
+
+        <div class="stat-card">
+            <p>Pending</p>
+            <h2 id="pendingTasks">0</h2>
+            <span>Tasks to complete</span>
+        </div>
+
+        <div class="stat-card">
+            <p>Completed</p>
+            <h2 id="completedTasks">0</h2>
+            <span>Finished tasks</span>
+        </div>
+
+    </section>
+
+    <section class="task-section" id="tasks">
+
+        <div class="section-header">
+            <div>
+                <h2>My Tasks</h2>
+                <p>Manage your school activities.</p>
+            </div>
+
+            <button onclick="openForm()">+ Add Task</button>
+        </div>
+
+        <div class="filters">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search tasks..."
+            >
+
+            <select id="filterStatus">
+                <option value="All">All Tasks</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+
+        <div id="taskList" class="task-list">
+            <p class="empty">Loading tasks...</p>
+        </div>
+
+    </section>
+
+</main>
+
+<div class="modal" id="taskModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="formTitle">Add New Task</h2>
+            <button class="close-btn" onclick="closeForm()">×</button>
+        </div>
+
+        <form id="taskForm">
+
+            <label>Task Title</label>
+            <input type="text" id="title" required maxlength="120"
+                   placeholder="Enter task title">
+
+            <label>Description</label>
+            <textarea id="description"
+                      placeholder="Enter task description"></textarea>
+
+            <label>Deadline</label>
+            <input type="date" id="deadline">
+
+            <div class="form-buttons">
+                <button type="button" class="cancel-btn"
+                        onclick="closeForm()">Cancel</button>
+                <button type="submit" id="saveBtn">Save Task</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
